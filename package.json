@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-element-ui",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "element-ui plugin for vue-cli",
   "main": "index.js",
   "repository": {
