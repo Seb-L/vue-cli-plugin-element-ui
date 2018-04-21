@@ -2,6 +2,11 @@ const localeList = ['af-ZA', 'ar', 'bg', 'ca', 'cs-CZ', 'da', 'de', 'ee', 'el', 
 
 module.exports = [
   {
+    type: 'confirm',
+    name: 'scssTheme',
+    message: 'Use scss theme?'
+  },
+  {
     type: 'list',
     name: 'i18n',
     message: 'ElementUi i18n options',

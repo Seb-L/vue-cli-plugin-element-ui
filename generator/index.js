@@ -5,8 +5,11 @@ module.exports = (api, opts) => {
     }
   })
 
+  if (opts.scssTheme) {
+    api.render('./templates/scss')
+  }
+
   api.postProcessFiles(files => {
-    // update main file
     // update main.js
     const file = files['src/main.ts']
       ? 'src/main.ts'
@@ -24,7 +27,13 @@ module.exports = (api, opts) => {
         lines[lastImportIndex] += `\nimport locale from 'element-ui/lib/locale/lang/${opts.standardLocale}'`
       }
 
-      lines[lastImportIndex] += `\nimport 'element-ui/lib/theme-chalk/index.css'`
+      // theme
+      if (opts.scssTheme) {
+        lines[lastImportIndex] += `\nimport './styles.scss'`
+      } else {
+        lines[lastImportIndex] += `\nimport 'element-ui/lib/theme-chalk/index.css'`
+      }
+
       lines[lastImportIndex] += `\n`
 
       // locale
@@ -37,8 +46,6 @@ module.exports = (api, opts) => {
       files[file] = lines.reverse().join('\n')
     }
 
-    // update i18n file
-    if (opts.vuei18nLocales.length) {
     // update i18n.js
     if (opts.vuei18nLocales) {
       const i18nFile = files['src/i18n.ts']
@@ -56,7 +63,8 @@ module.exports = (api, opts) => {
 
         // message obj init
         const msgObjIndex = i18nLines.findIndex(line => line.match(/^\s\sconst messages = {}/))
-        i18nLines[msgObjIndex] = `  const messages = { ${opts.vuei18nLocales.join(', ').replace(/-/gm, '_')} }`
+        const langKeys = opts.vuei18nLocales.join(', ').replace(/-/gm, '_')
+        i18nLines[msgObjIndex] = `  const messages = { ${langKeys} }`
 
         // message concat
         const msgConcatIndex = i18nLines.findIndex(line => line.match(/^\s\s\s\smessages\[locale\] = locales\(key\)/))
