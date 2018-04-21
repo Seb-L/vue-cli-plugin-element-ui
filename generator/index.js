@@ -5,8 +5,6 @@ module.exports = api => {
     }
   })
 
-  api.render('./template')
-
   api.postProcessFiles(files => {
     const file = files['src/main.ts']
       ? 'src/main.ts'
