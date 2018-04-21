@@ -1,0 +1,26 @@
+{
+  "name": "vue-cli-plugin-element-ui",
+  "version": "1.0.0",
+  "description": "element-ui plugin for vue-cli",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seb-L/vue-cli-plugin-element-ui.git"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "element-ui"
+  ],
+  "author": "Seb.L.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Seb-L/vue-cli-plugin-element-ui/issues"
+  },
+  "homepage": "https://github.com/Seb-L/vue-cli-plugin-element-ui#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
