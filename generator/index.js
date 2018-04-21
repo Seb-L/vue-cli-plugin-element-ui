@@ -7,6 +7,7 @@ module.exports = (api, opts) => {
 
   api.postProcessFiles(files => {
     // update main file
+    // update main.js
     const file = files['src/main.ts']
       ? 'src/main.ts'
       : 'src/main.js'
@@ -18,6 +19,7 @@ module.exports = (api, opts) => {
 
       lines[lastImportIndex] += `\nimport ElementUI from 'element-ui'`
 
+      // locale
       if (opts.standardLocale) {
         lines[lastImportIndex] += `\nimport locale from 'element-ui/lib/locale/lang/${opts.standardLocale}'`
       }
@@ -25,6 +27,7 @@ module.exports = (api, opts) => {
       lines[lastImportIndex] += `\nimport 'element-ui/lib/theme-chalk/index.css'`
       lines[lastImportIndex] += `\n`
 
+      // locale
       if (opts.standardLocale) {
         lines[lastImportIndex] += `\nVue.use(ElementUI, { locale })`
       } else {
@@ -36,6 +39,8 @@ module.exports = (api, opts) => {
 
     // update i18n file
     if (opts.vuei18nLocales.length) {
+    // update i18n.js
+    if (opts.vuei18nLocales) {
       const i18nFile = files['src/i18n.ts']
         ? 'src/i18n.ts'
         : 'src/i18n.js'
