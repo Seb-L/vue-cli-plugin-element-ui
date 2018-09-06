@@ -4,6 +4,10 @@ Element-ui plugin for vue-cli
 
 ElementUI documentation [here](https://element.eleme.io/)
 
+# Infos
+
+Element has now build their own plugin, you can find it here: [https://github.com/ElementUI/vue-cli-plugin-element](https://github.com/ElementUI/vue-cli-plugin-element)
+
 ## How to use
 
 1. Create your app with vue-cli 3:
